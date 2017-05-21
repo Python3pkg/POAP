@@ -8,7 +8,7 @@
 #     See https://groups.google.com/forum/#!topic/mpi4py/ULMq-bC1oQA
 
 try:
-    import Queue
+    import queue
 except ImportError:
     import queue as Queue
 
@@ -170,7 +170,7 @@ class MPIWorker(object):
 
     def __init__(self):
         self._running = False
-        self._outbox = Queue.Queue()
+        self._outbox = queue.Queue()
         self._eval_thread = None
         self._eval_killed = False
         self.daemonize = False
@@ -290,7 +290,7 @@ class MPIWorker(object):
                     logger.debug("MPI send to 0: %s", msg)
                     comm.send(msg, dest=0, tag=0)
                     logger.debug("MPI send completed")
-                except Queue.Empty:
+                except queue.Empty:
                     pass
 
 

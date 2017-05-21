@@ -49,8 +49,8 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'POAP'
-copyright = u'2014, David Bindel'
+project = 'POAP'
+copyright = '2014, David Bindel'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -205,8 +205,8 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-  ('index', 'POAP.tex', u'POAP Documentation',
-   u'David Bindel', 'howto'),
+  ('index', 'POAP.tex', 'POAP Documentation',
+   'David Bindel', 'howto'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
@@ -235,8 +235,8 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', 'poap', u'POAP Documentation',
-     [u'David Bindel'], 1)
+    ('index', 'poap', 'POAP Documentation',
+     ['David Bindel'], 1)
 ]
 
 # If true, show URL addresses after external links.
@@ -249,8 +249,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-  ('index', 'POAP', u'POAP Documentation',
-   u'David Bindel', 'POAP', 'One line description of project.',
+  ('index', 'POAP', 'POAP Documentation',
+   'David Bindel', 'POAP', 'One line description of project.',
    'Miscellaneous'),
 ]
 

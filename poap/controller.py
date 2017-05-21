@@ -5,7 +5,7 @@
 """
 
 try:
-    import Queue
+    import queue
 except ImportError:
     import queue as Queue
 
@@ -73,7 +73,7 @@ class Controller(object):
             fcomplete = [f for f in self.fevals if f.is_completed]
         else:
             fcomplete = [f for f in self.fevals
-                         if f.is_completed and filter(f)]
+                         if f.is_completed and list(filter(f))]
         if merit is None:
             def merit(r):
                 return r.value
@@ -225,8 +225,8 @@ class ThreadController(Controller):
     def __init__(self):
         "Initialize the controller."
         Controller.__init__(self)
-        self.workers = Queue.Queue()
-        self.messages = Queue.Queue()
+        self.workers = queue.Queue()
+        self.messages = queue.Queue()
 
     def ping(self):
         "Tell controller to consult strategies when possible"
@@ -292,7 +292,7 @@ class ThreadController(Controller):
             proposal.record.worker = worker
             proposal.accept()
             worker.eval(proposal.record)
-        except Queue.Empty:
+        except queue.Empty:
             logger.debug("Reject eval proposal -- no worker")
             proposal.reject()
 
@@ -361,7 +361,7 @@ class BaseWorkerThread(threading.Thread):
         logger.debug("Initialize worker thread")
         super(BaseWorkerThread, self).__init__()
         self.controller = controller
-        self.queue = Queue.Queue()
+        self.queue = queue.Queue()
 
     def eval(self, record):
         """Start evaluation.

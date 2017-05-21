@@ -52,7 +52,7 @@ def main():
         t.join()
 
     result = server.controller.best_point()
-    print("Final: {0:.3e} @ {1}".format(result.value, result.params))
+    print(("Final: {0:.3e} @ {1}".format(result.value, result.params)))
 
 
 if __name__ == '__main__':

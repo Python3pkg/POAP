@@ -5,7 +5,7 @@
 """
 
 try:
-    import Queue
+    import queue
 except ImportError:
     import queue as Queue
 
@@ -139,7 +139,7 @@ class EvalRecord(object):
         "Update fields and execute callbacks."
         logger.debug("Running callbacks on feval update")
         if kwargs is not None:
-            for key, value in kwargs.items():
+            for key, value in list(kwargs.items()):
                 setattr(self, key, value)
         for callback in self.callbacks:
             callback(self)
@@ -674,8 +674,8 @@ class PromiseStrategy(BaseStrategy):
 
     def __init__(self, rvalue=lambda r: r.value, block=True):
         "Initialize the strategy."
-        self.proposalq = Queue.Queue()
-        self.valueq = Queue.Queue()
+        self.proposalq = queue.Queue()
+        self.valueq = queue.Queue()
         self.rvalue = rvalue
         self.block = block
 

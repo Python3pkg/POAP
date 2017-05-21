@@ -43,7 +43,7 @@ def main():
         controller.launch_worker(DummySim(controller))
 
     result = controller.run()
-    print("Final: {0:.3e} @ {1}".format(result.value, result.params))
+    print(("Final: {0:.3e} @ {1}".format(result.value, result.params)))
 
 
 if __name__ == '__main__':

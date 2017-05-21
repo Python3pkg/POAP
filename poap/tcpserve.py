@@ -13,7 +13,7 @@ import logging
 try:
     import socketserver
 except ImportError:
-    import SocketServer as socketserver
+    import socketserver as socketserver
 
 from poap.controller import ThreadController
 
@@ -105,7 +105,7 @@ class SocketWorkerHandler(socketserver.BaseRequestHandler):
         except socket.error as e:
             logger.debug("Exiting worker: {0}".format(e))
         finally:
-            for rec_id, record in self.records.items():
+            for rec_id, record in list(self.records.items()):
                 self._cleanup(record)
             logger.debug("Leaving worker thread")
 
